@@ -7,19 +7,19 @@ using System.Web.Http;
 
 namespace Practice01_WebAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "dodam1", "dodam2","dodam3"};
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return "value" + " dodam  - " + id;
         }
 
         // POST api/values

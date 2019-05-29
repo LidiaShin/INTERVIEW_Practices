@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta charset="utf-8" />
+
+	<script src="Scripts/jquery-3.3.1.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			var ulMacarons = $('#ulMacarons');
+			$('#btn').click(function () {
+				$.ajax({
+					type: 'GET',
+					url: 'api/Macaron',
+					dataType: 'json',
+					success: function (data) {
+						ulMacarons.empty();
+						$.each(data, function (index,val) {
+							var Macaronz = val.Flavor;
+							ulMacarons.append('<li>' + Macaronz + '</li>');
+						});
+					}
+				});
+			});
+			$('#btnClear').click(function () {
+				ulMacarons.empty();
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div>
+		<input id="btn" type="button" value="Get All Macarons" />
+
+		<input id="btnClear" type="button" value="Clear" />
+
+
+
+	</div>
+
+	<ul id="ulMacarons"></ul>
+</body>
+</html>
